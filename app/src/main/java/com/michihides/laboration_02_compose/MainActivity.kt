@@ -51,12 +51,6 @@ fun Home(navigator: DestinationsNavigator) {
         }
 
         Button(onClick = {
-            navigator.navigate(SignUpScreenDestination)
-        }) {
-            Text(text = "Sign Up")
-        }
-
-        Button(onClick = {
             navigator.navigate(AboutScreenDestination)
         }) {
            Text(text = "About Us")
