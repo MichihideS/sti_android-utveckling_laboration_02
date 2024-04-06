@@ -9,7 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.michihides.laboration_02_compose.destinations.HomeDestination
-import com.michihides.laboration_02_compose.destinations.LoggedInScreenDestination
+import com.michihides.laboration_02_compose.ui.errorHandling.LoginErrorHandler
 import com.michihides.laboration_02_compose.ui.composables.LoginHandler
 import com.michihides.laboration_02_compose.ui.models.User
 import com.ramcosta.composedestinations.annotation.Destination
@@ -39,10 +39,16 @@ fun SignInScreen(navigator: DestinationsNavigator) {
             onChangeUser = { user = it }
         )
 
-        
+        if (!isUserExistent) {
+            Text(text = "FEL FÖRSÖK IGEN")
+        }
 
         Button(onClick = {
-            navigator.navigate(LoggedInScreenDestination)
+            if (!LoginErrorHandler().userExist(user, userList, navigator)) {
+                isUserExistent = false
+            }
+
+            LoginErrorHandler().userExist(user, userList, navigator)
         }) {
             Text(text = "Log In")
         }

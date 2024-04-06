@@ -5,14 +5,14 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.michihides.laboration_02_compose.destinations.HomeDestination
-import com.michihides.laboration_02_compose.destinations.LoggedInExtraScreenDestination
+import com.michihides.laboration_02_compose.destinations.LoggedInScreenDestination
 import com.michihides.laboration_02_compose.ui.models.User
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
-fun LoggedInScreen(
+fun LoggedInExtraScreen(
     username: String,
     password: String,
     navigator: DestinationsNavigator
@@ -20,22 +20,17 @@ fun LoggedInScreen(
     val user = User(username, password)
 
     Column {
-        Text(text = "Logged In")
-        Text(text = "Welcome ${user.username}")
-        
-        Button(onClick = {
-            navigator.navigate(LoggedInExtraScreenDestination(
-                username = user.username,
-                password = user.password
-            ))
-        }) {
-            Text(text = "Cool Info")
-        }
+        Text(text = "Extra Cool Info")
 
         Button(onClick = {
-            navigator.navigate(HomeDestination)
+            navigator.navigate(
+                LoggedInScreenDestination(
+                    username = user.username,
+                    password = user.password
+                )
+            )
         }) {
-            Text(text = "Logout to Home")
+            Text(text = "Back")
         }
     }
 }

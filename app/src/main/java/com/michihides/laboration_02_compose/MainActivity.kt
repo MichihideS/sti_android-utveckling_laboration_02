@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.michihides.laboration_02_compose.destinations.AboutScreenDestination
 import com.michihides.laboration_02_compose.destinations.SignInScreenDestination
-import com.michihides.laboration_02_compose.destinations.SignUpScreenDestination
 import com.michihides.laboration_02_compose.ui.theme.Laboration_02_ComposeTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.Destination
