@@ -4,6 +4,9 @@ import com.michihides.laboration_02_compose.destinations.LoggedInScreenDestinati
 import com.michihides.laboration_02_compose.ui.models.User
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
+/* Checks if the user exists and if the password matches as well it will take you to the
+** LoggedInScreen with the username and password as params
+ */
 class LoginErrorHandler {
     fun userExist(
         user: User,

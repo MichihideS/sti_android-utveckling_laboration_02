@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.michihides.laboration_02_compose.ui.theme.BeigeDark
 
+// A reusable Button that is used as main Button on all the screens with some design and styling
 @Composable
 fun GeneralButton(
     textButton: String,

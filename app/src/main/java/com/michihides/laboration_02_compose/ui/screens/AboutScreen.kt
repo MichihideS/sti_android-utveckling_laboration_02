@@ -13,9 +13,11 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun AboutScreen(navigator: DestinationsNavigator) {
+    // Main text on the AboutScreen
     TextColumn(text = stringResource(id = R.string.about_info))
 
     ButtonColumn {
+        // Button that navigates to the Home screen (MainActivity)
         GeneralButton(textButton = stringResource(id = R.string.back_home)) {
             navigator.navigate(HomeDestination)
         }

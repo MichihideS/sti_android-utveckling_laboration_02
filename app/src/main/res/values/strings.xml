@@ -27,4 +27,7 @@
     <string name="alert_dialog_users">
         Michan  //  123 \nTest  //  222 \nKristoffer  //  1337
     </string>
+    <string name="login_error_title">Error</string>
+    <string name="login_error_text">Wrong username or password, please try again…</string>
+    <string name="login_error_confirm">OK</string>
 </resources>

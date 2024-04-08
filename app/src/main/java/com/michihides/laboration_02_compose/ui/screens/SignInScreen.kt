@@ -38,6 +38,9 @@ fun SignInScreen(navigator: DestinationsNavigator) {
     ButtonColumn {
         val showArray = remember { mutableStateOf(false) }
 
+        /* An Alertdialog that will show itself if set to true which happens when you press
+        ** the List of Users button. Some Design on the Alertdialog itself as well
+         */
         if(showArray.value) {
             AlertDialog(
                 onDismissRequest = { showArray.value = false },
@@ -60,16 +63,19 @@ fun SignInScreen(navigator: DestinationsNavigator) {
             )
         }
 
+        // The Button that enables the Alertdialog
         GeneralButton(textButton = stringResource(id = R.string.predefined_array)) {
                 showArray.value = true
         }
-        
+
+        // Initializing the User Object
         var user by remember {
             mutableStateOf(
                 User("", "")
             )
         }
 
+        // Predefined list of Users that contains a username and a password
         val userList by remember {
             mutableStateOf(
                 listOf(
@@ -79,17 +85,53 @@ fun SignInScreen(navigator: DestinationsNavigator) {
                 )
             )
         }
+
+        // Variable to check if the user exists
         var isUserExistent by remember { mutableStateOf(true) }
 
+        // Calls the LoginHandler function which is the input fields for the user
         LoginHandler(
             user = user,
             onChangeUser = { user = it }
         )
 
-        if (!isUserExistent) {
-            Text(text = stringResource(id = R.string.error_login))
+        val showLoginError = remember { mutableStateOf(false) }
+
+        /* An Alertdialog that will show itself if set to true which happens when you press
+        ** the Log In Button with the wrong credentials. When you press OK the dialog will
+        ** disappear and isUserExistent will be set to true again which sounds wrong but
+        ** it worked so kept it for now
+        */
+        if(showLoginError.value) {
+            AlertDialog(
+                onDismissRequest = { showLoginError.value = false },
+                title = { Text(text = stringResource(id = R.string.login_error_title))},
+                text = { Text(
+                    text = stringResource(id = R.string.login_error_text),
+                    fontSize = 16.sp
+                )},
+                shape = RoundedCornerShape(5.dp),
+                containerColor = WhiteDarker,
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            showLoginError.value = false;
+                            isUserExistent = true},
+                        colors = ButtonDefaults.buttonColors(BeigeDark),
+                        shape = RoundedCornerShape(5.dp)
+                    ) {
+                        Text(text = stringResource(id = R.string.login_error_confirm))
+                    }
+                }
+            )
         }
 
+        // If user doesn't exist get an alert dialog
+        if (!isUserExistent)  {
+            showLoginError.value = true
+        }
+
+        // Button that navigates you to the LoggedInScreen if the right credentials are typed in
         GeneralButton(textButton = stringResource(id = R.string.log_in)) {
             if (!LoginErrorHandler().userExist(user, userList, navigator)) {
                 isUserExistent = false
@@ -98,6 +140,7 @@ fun SignInScreen(navigator: DestinationsNavigator) {
             LoginErrorHandler().userExist(user, userList, navigator)
         }
 
+        // Button that navigates to the Home Screen (MainActivity)
         GeneralButton(textButton = stringResource(id = R.string.back_home)) {
             navigator.navigate(HomeDestination)
         }

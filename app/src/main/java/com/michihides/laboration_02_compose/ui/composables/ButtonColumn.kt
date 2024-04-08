@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+// A reusable Column for the main Buttons that places them in the bottom of the screen
 @Composable
 fun ButtonColumn(
     content: @Composable ColumnScope.() -> Unit

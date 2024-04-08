@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.michihides.laboration_02_compose.ui.theme.BeigeTransparency
 
+// A reusable Column with a Text that uses a specific design for the main Text of a screen
 @Composable
 fun TextColumn(
     text: String

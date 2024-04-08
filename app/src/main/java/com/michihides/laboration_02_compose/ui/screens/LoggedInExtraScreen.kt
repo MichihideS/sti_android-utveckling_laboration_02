@@ -20,9 +20,13 @@ fun LoggedInExtraScreen(
 ) {
     val user = User(username, password)
 
+    // Main text on the LoggedInExtraScreen
     TextColumn(text = stringResource(id = R.string.logged_in_cool_info_explained))
 
     ButtonColumn {
+        /* Button that navigates to the LoggedInScreen and sends the username and password
+        ** as params as you press the button
+         */
         GeneralButton(textButton = stringResource(id = R.string.back)) {
             navigator.navigate(LoggedInScreenDestination(
                 username = user.username,

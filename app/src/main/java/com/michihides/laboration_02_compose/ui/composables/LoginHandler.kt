@@ -14,6 +14,9 @@ import androidx.compose.ui.unit.dp
 import com.michihides.laboration_02_compose.ui.models.User
 import com.michihides.laboration_02_compose.ui.theme.WhiteDarker
 
+/* Component for the username and password fields on the sign in page with different styling
+** The password field being hidden when you type so your password won't be visible
+*/
 @Composable
 fun LoginHandler(
     user: User,
