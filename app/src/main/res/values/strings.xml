@@ -21,4 +21,10 @@
         Your favorite hero in DOTA is windranger, a very agile archer
     </string>
     <string name="back">Back</string>
+    <string name="predefined_array">List of Users</string>
+    <string name="alert_dialog_title">List of Users \nUsername // Password</string>
+    <string name="alert_dialog_confirm">OK</string>
+    <string name="alert_dialog_users">
+        Michan  //  123 \nTest  //  222 \nKristoffer  //  1337
+    </string>
 </resources>
