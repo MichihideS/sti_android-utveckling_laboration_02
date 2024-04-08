@@ -24,9 +24,12 @@ fun GeneralButton(
             .padding(12.dp)
             .width(250.dp)
             .height(50.dp),
-        shape = RoundedCornerShape(5.dp)){
+        shape = RoundedCornerShape(5.dp)
+    ){
 
-        Text(text = textButton,
-            fontSize = 22.sp)
+        Text(
+            text = textButton,
+            fontSize = 22.sp
+        )
     }
 }

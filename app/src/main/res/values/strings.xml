@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Laboration_02_Compose</string>
+    <string name="welcome_text">Welcome Stranger to the world of DOTA</string>
+    <string name="sign_in">Sign In</string>
+    <string name="about">About</string>
+    <string name="sign_in_page">Sign in here using your login credentials</string>
+    <string name="back_home">Back to Home</string>
+    <string name="log_in">Log In</string>
+    <string name="error_login">Wrong Credentials, try again...</string>
+    <string name="about_info">
+        DOTA aka Defense of the Ancientsis a strategy video moba game.
+        The Game itself originated from a mod from the game called Warcraft III which was created
+        by Blizzard. The game is played between 2 different teams made up of 5 players on each
+        team. You control 1 hero which you progress throughout the game by defeating computer
+        played monsters or enemy heroes.
+
+    </string>
+    <string name="logged_in_cool_info">Cool Info</string>
+    <string name="logged_in_back_home">Logout to Home</string>
+    <string name="logged_in_cool_info_explained">
+        Your favorite hero in DOTA is windranger, a very agile archer
+    </string>
+    <string name="back">Back</string>
 </resources>

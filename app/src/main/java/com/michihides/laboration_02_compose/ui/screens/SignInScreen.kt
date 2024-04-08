@@ -1,49 +1,46 @@
 package com.michihides.laboration_02_compose.ui.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.michihides.laboration_02_compose.R
 import com.michihides.laboration_02_compose.destinations.HomeDestination
+import com.michihides.laboration_02_compose.ui.composables.ButtonColumn
+import com.michihides.laboration_02_compose.ui.composables.GeneralButton
 import com.michihides.laboration_02_compose.ui.errorHandling.LoginErrorHandler
 import com.michihides.laboration_02_compose.ui.composables.LoginHandler
+import com.michihides.laboration_02_compose.ui.composables.TextColumn
 import com.michihides.laboration_02_compose.ui.models.User
-import com.michihides.laboration_02_compose.ui.theme.Beige
-import com.michihides.laboration_02_compose.ui.theme.BeigeDark
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
 fun SignInScreen(navigator: DestinationsNavigator) {
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .background(color = Beige)
-    ) {
-        Text(text = "Sign In Page")
+    TextColumn(
+        text = stringResource(id = R.string.sign_in_page)
+    )
 
-        var user by remember { mutableStateOf(
-            User("", "")
-        ) }
-
-        val userList by remember { mutableStateOf(listOf(
-            User("Michan", "123"),
-            User("Test", "222"),
-            User("Kristoffer", "1337")
-        ))
+    ButtonColumn {
+        var user by remember {
+            mutableStateOf(
+                User("", "")
+            )
         }
 
+        val userList by remember {
+            mutableStateOf(
+                listOf(
+                    User("Michan", "123"),
+                    User("Test", "222"),
+                    User("Kristoffer", "1337")
+                )
+            )
+        }
         var isUserExistent by remember { mutableStateOf(true) }
 
         LoginHandler(
@@ -52,27 +49,19 @@ fun SignInScreen(navigator: DestinationsNavigator) {
         )
 
         if (!isUserExistent) {
-            Text(text = "FEL FÖRSÖK IGEN")
+            Text(text = stringResource(id = R.string.error_login))
         }
 
-        Button(onClick = {
+        GeneralButton(textButton = stringResource(id = R.string.log_in)) {
             if (!LoginErrorHandler().userExist(user, userList, navigator)) {
                 isUserExistent = false
             }
 
             LoginErrorHandler().userExist(user, userList, navigator)
-        },
-            colors = ButtonDefaults.buttonColors(BeigeDark)
-            ) {
-            Text(text = "Log In")
         }
 
-        Button(onClick = {
+        GeneralButton(textButton = stringResource(id = R.string.back_home)) {
             navigator.navigate(HomeDestination)
-        },
-            colors = ButtonDefaults.buttonColors(BeigeDark)
-            ) {
-            Text(text = "Back to Home")
         }
     }
 }
