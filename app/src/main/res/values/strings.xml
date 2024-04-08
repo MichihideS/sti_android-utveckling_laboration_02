@@ -15,7 +15,7 @@
         played monsters or enemy heroes.
 
     </string>
-    <string name="logged_in_cool_info">Cool Info</string>
+    <string name="logged_in_cool_info">Favorite Hero</string>
     <string name="logged_in_back_home">Logout to Home</string>
     <string name="logged_in_cool_info_explained">
         Your favorite hero in DOTA is windranger, a very agile archer
@@ -30,4 +30,7 @@
     <string name="login_error_title">Error</string>
     <string name="login_error_text">Wrong username or password, please try again…</string>
     <string name="login_error_confirm">OK</string>
+    <string name="dota_logo_main">Main DOTA Logo</string>
+    <string name="dota_logo_background">DOTA background Logo</string>
+    <string name="dota_windranger">Windranger</string>
 </resources>

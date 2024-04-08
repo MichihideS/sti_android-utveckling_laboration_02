@@ -1,5 +1,6 @@
 package com.michihides.laboration_02_compose.ui.composables
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.material3.Text
@@ -26,8 +27,10 @@ fun TextColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .background(Beige)
-       ) {
-        Text(text = text,
+
+    ) {
+        Text(
+            text = text,
             fontSize = 20.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
@@ -36,6 +39,6 @@ fun TextColumn(
                 .border(2.dp, Color.Black)
                 .background(BeigeTransparency)
                 .padding(20.dp)
-        )
+            )
     }
 }

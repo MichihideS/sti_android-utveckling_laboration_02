@@ -10,12 +10,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.michihides.laboration_02_compose.R
 import com.michihides.laboration_02_compose.destinations.HomeDestination
+import com.michihides.laboration_02_compose.ui.composables.BackgroundImage
 import com.michihides.laboration_02_compose.ui.composables.ButtonColumn
 import com.michihides.laboration_02_compose.ui.composables.GeneralButton
 import com.michihides.laboration_02_compose.ui.errorHandling.LoginErrorHandler
@@ -23,7 +23,6 @@ import com.michihides.laboration_02_compose.ui.composables.LoginHandler
 import com.michihides.laboration_02_compose.ui.composables.TextColumn
 import com.michihides.laboration_02_compose.ui.models.User
 import com.michihides.laboration_02_compose.ui.theme.BeigeDark
-import com.michihides.laboration_02_compose.ui.theme.BeigeTransparency
 import com.michihides.laboration_02_compose.ui.theme.WhiteDarker
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -31,9 +30,12 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun SignInScreen(navigator: DestinationsNavigator) {
+    // Main Text on the SignInScreen
     TextColumn(
         text = stringResource(id = R.string.sign_in_page)
     )
+
+    BackgroundImage()
 
     ButtonColumn {
         val showArray = remember { mutableStateOf(false) }
@@ -115,7 +117,7 @@ fun SignInScreen(navigator: DestinationsNavigator) {
                 confirmButton = {
                     Button(
                         onClick = {
-                            showLoginError.value = false;
+                            showLoginError.value = false
                             isUserExistent = true},
                         colors = ButtonDefaults.buttonColors(BeigeDark),
                         shape = RoundedCornerShape(5.dp)

@@ -5,7 +5,9 @@ import androidx.compose.ui.res.stringResource
 import com.michihides.laboration_02_compose.R
 import com.michihides.laboration_02_compose.destinations.HomeDestination
 import com.michihides.laboration_02_compose.destinations.LoggedInExtraScreenDestination
+import com.michihides.laboration_02_compose.ui.composables.BackgroundImage
 import com.michihides.laboration_02_compose.ui.composables.ButtonColumn
+import com.michihides.laboration_02_compose.ui.composables.DotaLogo
 import com.michihides.laboration_02_compose.ui.composables.GeneralButton
 import com.michihides.laboration_02_compose.ui.composables.TextColumn
 import com.michihides.laboration_02_compose.ui.models.User
@@ -22,7 +24,13 @@ fun LoggedInScreen(
     val user = User(username, password)
 
     // Main Text on the LoggedInScreen
-    TextColumn(text = "Welcome ${user.username}")
+    TextColumn(
+        text = "Welcome ${user.username}"
+    )
+
+    BackgroundImage()
+
+    DotaLogo()
 
     ButtonColumn {
         /* Button that navigates to the LoggedInExtraScreen and sends the username and password

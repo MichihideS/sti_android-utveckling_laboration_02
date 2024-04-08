@@ -11,7 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.michihides.laboration_02_compose.destinations.AboutScreenDestination
 import com.michihides.laboration_02_compose.destinations.SignInScreenDestination
+import com.michihides.laboration_02_compose.ui.composables.BackgroundImage
 import com.michihides.laboration_02_compose.ui.composables.ButtonColumn
+import com.michihides.laboration_02_compose.ui.composables.DotaLogo
 import com.michihides.laboration_02_compose.ui.composables.GeneralButton
 import com.michihides.laboration_02_compose.ui.composables.TextColumn
 import com.michihides.laboration_02_compose.ui.theme.Laboration_02_ComposeTheme
@@ -41,20 +43,27 @@ class MainActivity : ComponentActivity() {
 @Destination
 @Composable
 fun Home(navigator: DestinationsNavigator) {
+    // Main Text on the Home Screen (MainActivity)
     TextColumn(
         text = stringResource(id = R.string.welcome_text)
     )
 
+    BackgroundImage()
+
+    DotaLogo()
+
     ButtonColumn {
+        // Button that navigates you to the SignInScreen
         GeneralButton(textButton = stringResource(id = R.string.sign_in)) {
             navigator.navigate(SignInScreenDestination)
         }
-
+        // Button that navigates you to the AboutScreen
         GeneralButton(textButton = stringResource(id = R.string.about)) {
             navigator.navigate(AboutScreenDestination)
         }
     }
 }
+
 
 
 
